@@ -3,31 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Happy Birthday Ama!💙</title>
+  <title>Happy Birthday Ama 💙</title>
 
   <style>
     *{
       margin:0;
       padding:0;
       box-sizing:border-box;
-      scroll-behavior:smooth;
       font-family: Arial, sans-serif;
+      scroll-behavior:smooth;
     }
 
     body{
       background: linear-gradient(to bottom, #dff4ff, #f5fbff);
-      overflow-x:hidden;
       color:#1b3a4b;
-    }
-
-    section{
-      padding:100px 20px;
-      position:relative;
-      z-index:2;
-    }
-
-    h1,h2{
-      text-align:center;
+      overflow-x:hidden;
     }
 
     .hero{
@@ -37,406 +27,252 @@
       justify-content:center;
       align-items:center;
       text-align:center;
+      padding:20px;
       position:relative;
-      overflow:hidden;
     }
 
-    .hero h1{
-      font-size:5rem;
+    h1{
+      font-size:4rem;
       color:#4aa3df;
       animation:pulse 3s infinite;
-      text-shadow:0 0 25px rgba(74,163,223,0.3);
     }
 
-    .hero p{
-      margin-top:25px;
+    p{
       max-width:800px;
-      font-size:1.4rem;
+      font-size:1.3rem;
+      margin-top:20px;
       line-height:1.8;
     }
 
-    .buttons{
-      margin-top:40px;
-      display:flex;
-      gap:20px;
-      flex-wrap:wrap;
-      justify-content:center;
-    }
-
     .btn{
+      margin-top:30px;
       background:#69bdf5;
       color:white;
-      padding:16px 32px;
+      padding:14px 28px;
       border-radius:20px;
       text-decoration:none;
-      font-size:1rem;
+      display:inline-block;
       transition:0.3s;
-      box-shadow:0 10px 30px rgba(0,0,0,0.1);
     }
 
     .btn:hover{
-      transform:translateY(-5px) scale(1.05);
+      transform:scale(1.05);
       background:#4aa3df;
     }
 
-    .floating{
-      position:absolute;
-      border-radius:50%;
-      background:rgba(255,255,255,0.35);
-      animation:floatUp linear infinite;
-      backdrop-filter:blur(3px);
+    section{
+      padding:80px 20px;
+      text-align:center;
     }
 
-    @keyframes floatUp{
-      from{
-        transform:translateY(100vh);
-      }
-      to{
-        transform:translateY(-120vh);
-      }
-    }
-
-    @keyframes pulse{
-      0%,100%{
-        transform:scale(1);
-      }
-      50%{
-        transform:scale(1.05);
-      }
-    }
-
-    .section-title{
-      font-size:3rem;
+    h2{
       color:#4aa3df;
-      margin-bottom:60px;
+      margin-bottom:40px;
+      font-size:2.5rem;
     }
 
     .gallery{
-      max-width:1300px;
-      margin:auto;
-    }
-
-    .gallery-grid{
       display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-      gap:30px;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:20px;
+      max-width:1000px;
+      margin:auto;
     }
 
     .card{
       background:white;
-      border-radius:30px;
+      border-radius:20px;
       overflow:hidden;
-      box-shadow:0 15px 35px rgba(0,0,0,0.08);
-      transition:0.4s;
       cursor:pointer;
+      box-shadow:0 10px 20px rgba(0,0,0,0.08);
+      transition:0.3s;
     }
 
     .card:hover{
-      transform:translateY(-10px) rotate(1deg) scale(1.02);
+      transform:scale(1.05);
     }
 
     .card img{
       width:100%;
-      height:350px;
+      height:250px;
       object-fit:cover;
     }
 
     .card p{
-      padding:20px;
-      text-align:center;
-      font-size:1.1rem;
+      padding:15px;
+      font-size:1rem;
     }
 
-    .message-box{
-      max-width:950px;
-      margin:auto;
-      background:white;
-      border-radius:40px;
-      padding:60px;
-      text-align:center;
-      box-shadow:0 15px 35px rgba(0,0,0,0.08);
-    }
-
-    .message-box p{
-      font-size:1.3rem;
-      line-height:2;
-    }
-
-    .signature{
-      margin-top:40px;
-      font-size:2rem;
-      color:#4aa3df;
-      font-weight:bold;
-    }
-
-    .memory-wall{
-      max-width:1200px;
-      margin:auto;
+    .notes{
       display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-      gap:25px;
+      grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+      gap:15px;
+      max-width:900px;
+      margin:auto;
     }
 
-    .memory{
+    .note{
+      background:#ffffff;
+      padding:20px;
+      border-radius:15px;
+      box-shadow:0 8px 15px rgba(0,0,0,0.05);
+    }
+
+    .letter{
+      max-width:800px;
+      margin:auto;
       background:white;
-      padding:30px;
+      padding:40px;
       border-radius:25px;
-      box-shadow:0 10px 25px rgba(0,0,0,0.07);
-      transition:0.3s;
-    }
-
-    .memory:hover{
-      transform:translateY(-8px);
-    }
-
-    .counter{
-      text-align:center;
-      font-size:4rem;
-      color:#4aa3df;
-      margin-top:30px;
-      font-weight:bold;
+      box-shadow:0 10px 25px rgba(0,0,0,0.08);
+      line-height:1.8;
+      font-size:1.2rem;
     }
 
     footer{
       text-align:center;
-      padding:50px;
+      padding:40px;
       color:#5b7484;
-      font-size:1rem;
     }
 
-    .music-button{
-      position:fixed;
-      bottom:25px;
-      right:25px;
-      z-index:999;
-      background:#69bdf5;
-      color:white;
-      border:none;
-      padding:16px 20px;
-      border-radius:50px;
-      cursor:pointer;
-      font-size:1rem;
-      box-shadow:0 10px 25px rgba(0,0,0,0.15);
-      transition:0.3s;
-    }
-
-    .music-button:hover{
-      transform:scale(1.08);
-    }
-
+    /* Floating sparkles */
     .sparkle{
       position:fixed;
       pointer-events:none;
-      font-size:18px;
-      animation:sparkleFade 1s linear forwards;
+      animation:fade 1s linear forwards;
+      font-size:16px;
       z-index:9999;
     }
 
-    @keyframes sparkleFade{
-      from{
-        opacity:1;
-        transform:scale(1);
-      }
-      to{
-        opacity:0;
-        transform:translateY(-20px) scale(2);
-      }
+    @keyframes fade{
+      from{opacity:1; transform:scale(1);}
+      to{opacity:0; transform:translateY(-20px) scale(2);}
     }
 
-    @media(max-width:768px){
-
-      .hero h1{
-        font-size:3rem;
-      }
-
-      .hero p{
-        font-size:1.1rem;
-      }
-
-      .section-title{
-        font-size:2.2rem;
-      }
-
-      .message-box{
-        padding:35px;
-      }
+    @keyframes pulse{
+      0%,100%{transform:scale(1);}
+      50%{transform:scale(1.05);}
     }
 
+    /* Music button */
+    .music{
+      position:fixed;
+      bottom:20px;
+      right:20px;
+      background:#4aa3df;
+      color:white;
+      border:none;
+      padding:12px 18px;
+      border-radius:30px;
+      cursor:pointer;
+      z-index:999;
+    }
   </style>
 </head>
+
 <body>
 
-  <!-- MUSIC -->
+  <!-- MUSIC (FIXED PATH) -->
   <audio id="bgMusic" loop>
-    <source src="assets/music/eye-in-the-sky.mp3" type="audio/mpeg">
+    <source src="eye-in-the-sky.mp3" type="audio/mpeg">
   </audio>
 
-  <button class="music-button" onclick="playMusic()">
-    🎵 Play Music
-  </button>
-
-  <!-- FLOATING BUBBLES -->
-  <script>
-    for(let i=0;i<40;i++){
-      const bubble=document.createElement('div');
-      bubble.classList.add('floating');
-
-      const size=Math.random()*80+20;
-
-      bubble.style.width=size+'px';
-      bubble.style.height=size+'px';
-      bubble.style.left=Math.random()*100+'vw';
-      bubble.style.animationDuration=(8+Math.random()*10)+'s';
-      bubble.style.opacity=Math.random();
-
-      document.body.appendChild(bubble);
-    }
-  </script>
+  <button class="music" onclick="playMusic()">🎵 Play Music</button>
 
   <!-- HERO -->
-  <section class="hero">
-
-    <h1>Happy Birthday Ama! 💙</h1>
-
+  <div class="hero">
+    <h1>Happy Birthday Ama 💙</h1>
     <p>
-      Thank you for your endless love, kindness, and support.
-      Every beautiful memory in my life started with you.
-      This website was made especially for you by Yuelha!
+      Thank you for your endless love, care, and support.
+      This little website is made just for you 💙
     </p>
 
-    <div class="buttons">
-      <a href="#gallery" class="btn">View Memories 📸</a>
-      <a href="#letter" class="btn">Read My Letter 💌</a>
-    </div>
-
-    <div class="counter" id="daysCounter">
-      💙
-    </div>
-
-  </section>
+    <a href="#gallery" class="btn">View Memories 📸</a>
+  </div>
 
   <!-- GALLERY -->
   <section id="gallery">
-
-    <h2 class="section-title">Memory Gallery 📸</h2>
+    <h2>Memory Gallery 📸</h2>
 
     <div class="gallery">
-      <div class="gallery-grid">
 
-        <div class="card">
-          <img src="assets/images/mom1.jpg">
-          <p>My favorite memory with you 💙</p>
-        </div>
-
-        <div class="card">
-          <img src="assets/images/mom2.jpg">
-          <p>You always make life brighter ✨</p>
-        </div>
-
-        <div class="card">
-          <img src="assets/images/mom3.jpg">
-          <p>Thank you for every smile 🌸</p>
-        </div>
-
+      <div class="card" onclick="openImg(this)">
+        <img src="assets/images/mom1.jpg">
+        <p>Beautiful memory 💙</p>
       </div>
-    </div>
 
+      <div class="card" onclick="openImg(this)">
+        <img src="assets/images/mom2.jpg">
+        <p>Smiles forever ✨</p>
+      </div>
+
+      <div class="card" onclick="openImg(this)">
+        <img src="assets/images/mom3.jpg">
+        <p>Family love 🌸</p>
+      </div>
+
+    </div>
   </section>
 
-  <!-- MEMORIES -->
+  <!-- NOTES -->
   <section>
+    <h2>Things I Love About You 🌷</h2>
 
-    <h2 class="section-title">Things I Love About You 🌷</h2>
-
-    <div class="memory-wall">
-
-      <div class="memory">
-        Your kindness makes every day feel safe and warm.
-      </div>
-
-      <div class="memory">
-        You always know how to make everyone smile.
-      </div>
-
-      <div class="memory">
-        Your love is the heart of our family.
-      </div>
-
-      <div class="memory">
-        Thank you for believing in me no matter what.
-      </div>
-
-      <div class="memory">
-        Your laughter is my favorite sound in the world.
-      </div>
-
-      <div class="memory">
-        You make ordinary moments magical.
-      </div>
-
+    <div class="notes">
+      <div class="note">Your kindness is endless 💙</div>
+      <div class="note">You always support me</div>
+      <div class="note">Your smile makes life better</div>
+      <div class="note">You are my safe place</div>
+      <div class="note">Your love is everything</div>
+      <div class="note">You are my hero</div>
     </div>
-
   </section>
 
   <!-- LETTER -->
-  <section id="letter">
+  <section>
+    <h2>A Letter To Ama 💌</h2>
 
-    <div class="message-box">
+    <div class="letter">
+      Mom, thank you for everything you do for me.
+      You are my strength, my happiness, and my home.
+      I hope this birthday brings you as much joy as you bring to me every day.
 
-      <h2 class="section-title">A Letter To Mom 💌</h2>
-
-      <p>
-        Mom, thank you for being my biggest supporter,
-        my safest place, and the person who has always
-        believed in me. Every memory with you is something
-        I treasure deeply. I hope this birthday reminds
-        you how loved and appreciated you truly are.
-      </p>
-
-      <div class="signature">
-        I Love You Forever 💙
-      </div>
-
+      <br><br>
+      I love you forever 💙
     </div>
-
   </section>
 
   <footer>
-    Made with love for Mom 💙
+    Made with love 💙
   </footer>
 
-  <!-- MUSIC SCRIPT -->
   <script>
+    // MUSIC FIX (works on GitHub Pages)
     function playMusic(){
-      const music=document.getElementById('bgMusic');
-      music.play();
+      document.getElementById("bgMusic").play();
     }
 
-    document.body.addEventListener('click', function(){
-      document.getElementById('bgMusic').play();
-    }, {once:true});
-  </script>
+    document.body.addEventListener("click", () => {
+      document.getElementById("bgMusic").play();
+    }, { once:true });
 
-  <!-- SPARKLE CURSOR -->
-  <script>
-    document.addEventListener('mousemove', function(e){
-
-      const sparkle=document.createElement('div');
-
-      sparkle.classList.add('sparkle');
-
-      sparkle.innerHTML='💙';
-
-      sparkle.style.left=e.pageX+'px';
-      sparkle.style.top=e.pageY+'px';
-
-      document.body.appendChild(sparkle);
-
-      setTimeout(()=>{
-        sparkle.remove();
-      },1000);
-
+    // SPARKLES
+    document.addEventListener("mousemove", (e) => {
+      const s = document.createElement("div");
+      s.className = "sparkle";
+      s.innerHTML = "💙";
+      s.style.left = e.pageX + "px";
+      s.style.top = e.pageY + "px";
+      document.body.appendChild(s);
+      setTimeout(() => s.remove(), 1000);
     });
+
+    // IMAGE POPUP
+    function openImg(card){
+      const img = card.querySelector("img").src;
+      const win = window.open("");
+      win.document.write(`<img src="${img}" style="width:100%">`);
+    }
   </script>
 
 </body>
