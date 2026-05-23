@@ -2,299 +2,442 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Happy Birthday Ama Tashi!! ❤️</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Birthday Ama!💙</title>
 
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      scroll-behavior: smooth;
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      scroll-behavior:smooth;
       font-family: Arial, sans-serif;
     }
 
-    body {
-      background: linear-gradient(to bottom, #ffe4ec, #fff7f0);
-      overflow-x: hidden;
-      color: #333;
+    body{
+      background: linear-gradient(to bottom, #dff4ff, #f5fbff);
+      overflow-x:hidden;
+      color:#1b3a4b;
     }
 
-    section {
-      padding: 100px 20px;
+    section{
+      padding:100px 20px;
+      position:relative;
+      z-index:2;
     }
 
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
+    h1,h2{
+      text-align:center;
     }
 
-    h1 {
-      font-size: 5rem;
-      color: #ff4f87;
-      margin-bottom: 20px;
-      animation: pulse 2s infinite;
+    .hero{
+      min-height:100vh;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      position:relative;
+      overflow:hidden;
     }
 
-    .subtitle {
-      font-size: 1.5rem;
-      max-width: 700px;
-      line-height: 1.7;
+    .hero h1{
+      font-size:5rem;
+      color:#4aa3df;
+      animation:pulse 3s infinite;
+      text-shadow:0 0 25px rgba(74,163,223,0.3);
     }
 
-    .buttons {
-      margin-top: 40px;
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-      justify-content: center;
+    .hero p{
+      margin-top:25px;
+      max-width:800px;
+      font-size:1.4rem;
+      line-height:1.8;
     }
 
-    .btn {
-      padding: 15px 30px;
-      border-radius: 20px;
-      background: #ff4f87;
-      color: white;
-      text-decoration: none;
-      font-size: 1rem;
-      transition: 0.3s ease;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    .buttons{
+      margin-top:40px;
+      display:flex;
+      gap:20px;
+      flex-wrap:wrap;
+      justify-content:center;
     }
 
-    .btn:hover {
-      transform: scale(1.05);
-      background: #ff2d70;
+    .btn{
+      background:#69bdf5;
+      color:white;
+      padding:16px 32px;
+      border-radius:20px;
+      text-decoration:none;
+      font-size:1rem;
+      transition:0.3s;
+      box-shadow:0 10px 30px rgba(0,0,0,0.1);
     }
 
-    .gallery {
-      max-width: 1200px;
-      margin: auto;
+    .btn:hover{
+      transform:translateY(-5px) scale(1.05);
+      background:#4aa3df;
     }
 
-    .gallery h2,
-    .message h2,
-    .love-notes h2 {
-      text-align: center;
-      font-size: 3rem;
-      margin-bottom: 60px;
-      color: #ff4f87;
+    .floating{
+      position:absolute;
+      border-radius:50%;
+      background:rgba(255,255,255,0.35);
+      animation:floatUp linear infinite;
+      backdrop-filter:blur(3px);
     }
 
-    .photo-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 30px;
-    }
-
-    .photo-card {
-      background: white;
-      border-radius: 30px;
-      overflow: hidden;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-      transition: 0.3s ease;
-    }
-
-    .photo-card:hover {
-      transform: translateY(-10px) scale(1.02);
-    }
-
-    .photo-card img {
-      width: 100%;
-      height: 350px;
-      object-fit: cover;
-    }
-
-    .photo-card p {
-      padding: 20px;
-      text-align: center;
-      font-size: 1.1rem;
-    }
-
-    .notes-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 25px;
-      max-width: 1200px;
-      margin: auto;
-    }
-
-    .note {
-      background: #fff0f5;
-      padding: 30px;
-      border-radius: 25px;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.08);
-      transition: 0.3s ease;
-    }
-
-    .note:hover {
-      transform: translateY(-8px);
-    }
-
-    .message-box {
-      background: white;
-      max-width: 900px;
-      margin: auto;
-      padding: 60px;
-      border-radius: 40px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-      text-align: center;
-    }
-
-    .message-box p {
-      font-size: 1.3rem;
-      line-height: 2;
-    }
-
-    .signature {
-      margin-top: 40px;
-      font-size: 2rem;
-      color: #ff4f87;
-      font-weight: bold;
-    }
-
-    footer {
-      text-align: center;
-      padding: 40px;
-      color: #666;
-    }
-
-    .heart {
-      position: absolute;
-      color: rgba(255, 105, 180, 0.4);
-      animation: float 8s linear infinite;
-      user-select: none;
-    }
-
-    @keyframes float {
-      from {
-        transform: translateY(100vh) rotate(0deg);
+    @keyframes floatUp{
+      from{
+        transform:translateY(100vh);
       }
-      to {
-        transform: translateY(-120vh) rotate(360deg);
+      to{
+        transform:translateY(-120vh);
       }
     }
 
-    @keyframes pulse {
-      0%, 100% {
-        transform: scale(1);
+    @keyframes pulse{
+      0%,100%{
+        transform:scale(1);
       }
-      50% {
-        transform: scale(1.05);
+      50%{
+        transform:scale(1.05);
+      }
+    }
+
+    .section-title{
+      font-size:3rem;
+      color:#4aa3df;
+      margin-bottom:60px;
+    }
+
+    .gallery{
+      max-width:1300px;
+      margin:auto;
+    }
+
+    .gallery-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:30px;
+    }
+
+    .card{
+      background:white;
+      border-radius:30px;
+      overflow:hidden;
+      box-shadow:0 15px 35px rgba(0,0,0,0.08);
+      transition:0.4s;
+      cursor:pointer;
+    }
+
+    .card:hover{
+      transform:translateY(-10px) rotate(1deg) scale(1.02);
+    }
+
+    .card img{
+      width:100%;
+      height:350px;
+      object-fit:cover;
+    }
+
+    .card p{
+      padding:20px;
+      text-align:center;
+      font-size:1.1rem;
+    }
+
+    .message-box{
+      max-width:950px;
+      margin:auto;
+      background:white;
+      border-radius:40px;
+      padding:60px;
+      text-align:center;
+      box-shadow:0 15px 35px rgba(0,0,0,0.08);
+    }
+
+    .message-box p{
+      font-size:1.3rem;
+      line-height:2;
+    }
+
+    .signature{
+      margin-top:40px;
+      font-size:2rem;
+      color:#4aa3df;
+      font-weight:bold;
+    }
+
+    .memory-wall{
+      max-width:1200px;
+      margin:auto;
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:25px;
+    }
+
+    .memory{
+      background:white;
+      padding:30px;
+      border-radius:25px;
+      box-shadow:0 10px 25px rgba(0,0,0,0.07);
+      transition:0.3s;
+    }
+
+    .memory:hover{
+      transform:translateY(-8px);
+    }
+
+    .counter{
+      text-align:center;
+      font-size:4rem;
+      color:#4aa3df;
+      margin-top:30px;
+      font-weight:bold;
+    }
+
+    footer{
+      text-align:center;
+      padding:50px;
+      color:#5b7484;
+      font-size:1rem;
+    }
+
+    .music-button{
+      position:fixed;
+      bottom:25px;
+      right:25px;
+      z-index:999;
+      background:#69bdf5;
+      color:white;
+      border:none;
+      padding:16px 20px;
+      border-radius:50px;
+      cursor:pointer;
+      font-size:1rem;
+      box-shadow:0 10px 25px rgba(0,0,0,0.15);
+      transition:0.3s;
+    }
+
+    .music-button:hover{
+      transform:scale(1.08);
+    }
+
+    .sparkle{
+      position:fixed;
+      pointer-events:none;
+      font-size:18px;
+      animation:sparkleFade 1s linear forwards;
+      z-index:9999;
+    }
+
+    @keyframes sparkleFade{
+      from{
+        opacity:1;
+        transform:scale(1);
+      }
+      to{
+        opacity:0;
+        transform:translateY(-20px) scale(2);
       }
     }
 
-    @media (max-width: 768px) {
-      h1 {
-        font-size: 3rem;
+    @media(max-width:768px){
+
+      .hero h1{
+        font-size:3rem;
       }
 
-      .subtitle {
-        font-size: 1.1rem;
+      .hero p{
+        font-size:1.1rem;
       }
 
-      .message-box {
-        padding: 30px;
+      .section-title{
+        font-size:2.2rem;
+      }
+
+      .message-box{
+        padding:35px;
       }
     }
+
   </style>
 </head>
 <body>
 
-  <!-- Background Music -->
-  <audio autoplay loop>
+  <!-- MUSIC -->
+  <audio id="bgMusic" loop>
     <source src="assets/music/eye-in-the-sky.mp3" type="audio/mpeg">
   </audio>
 
-  <!-- Floating Hearts -->
+  <button class="music-button" onclick="playMusic()">
+    🎵 Play Music
+  </button>
+
+  <!-- FLOATING BUBBLES -->
   <script>
-    for (let i = 0; i < 30; i++) {
-      const heart = document.createElement('div');
-      heart.classList.add('heart');
-      heart.innerHTML = '❤️';
-      heart.style.left = Math.random() * 100 + 'vw';
-      heart.style.fontSize = (20 + Math.random() * 40) + 'px';
-      heart.style.animationDuration = (5 + Math.random() * 10) + 's';
-      document.body.appendChild(heart);
+    for(let i=0;i<40;i++){
+      const bubble=document.createElement('div');
+      bubble.classList.add('floating');
+
+      const size=Math.random()*80+20;
+
+      bubble.style.width=size+'px';
+      bubble.style.height=size+'px';
+      bubble.style.left=Math.random()*100+'vw';
+      bubble.style.animationDuration=(8+Math.random()*10)+'s';
+      bubble.style.opacity=Math.random();
+
+      document.body.appendChild(bubble);
     }
   </script>
 
-  <!-- Hero -->
+  <!-- HERO -->
   <section class="hero">
-    <h1>Happy Birthday Ama Tashi!❤️</h1>
 
-    <p class="subtitle">
-      Thank you so much for everything!! This website was specially mad for you by Yuelha
+    <h1>Happy Birthday Mom 💙</h1>
+
+    <p>
+      Thank you for your endless love, kindness, and support.
+      Every beautiful memory in my life started with you.
+      This website was made especially for your special day.
     </p>
 
     <div class="buttons">
       <a href="#gallery" class="btn">View Memories 📸</a>
-      <a href="#message" class="btn">Read My Letter 💌</a>
+      <a href="#letter" class="btn">Read My Letter 💌</a>
     </div>
+
+    <div class="counter" id="daysCounter">
+      💙
+    </div>
+
   </section>
 
-  <!-- Gallery -->
-  <section id="gallery" class="gallery">
-    <h2>Memory Gallery 📸</h2>
+  <!-- GALLERY -->
+  <section id="gallery">
 
-    <div class="photo-grid">
-      <div class="photo-card">
-        <img src="assets/images/mom1.jpg" alt="Mom Photo 1">
-        <p>Replace this with your favorite photo ❤️</p>
-      </div>
+    <h2 class="section-title">Memory Gallery 📸</h2>
 
-      <div class="photo-card">
-        <img src="assets/images/mom2.jpg" alt="Mom Photo 2">
-        <p>A beautiful family memory 🌸</p>
-      </div>
+    <div class="gallery">
+      <div class="gallery-grid">
 
-      <div class="photo-card">
-        <img src="assets/images/mom3.jpg" alt="Mom Photo 3">
-        <p>Another unforgettable moment ✨</p>
+        <div class="card">
+          <img src="assets/images/mom1.jpg">
+          <p>My favorite memory with you 💙</p>
+        </div>
+
+        <div class="card">
+          <img src="assets/images/mom2.jpg">
+          <p>You always make life brighter ✨</p>
+        </div>
+
+        <div class="card">
+          <img src="assets/images/mom3.jpg">
+          <p>Thank you for every smile 🌸</p>
+        </div>
+
       </div>
     </div>
+
   </section>
 
-  <!-- Love Notes -->
-  <section class="love-notes">
-    <h2>Things I Love About You 🌷</h2>
+  <!-- MEMORIES -->
+  <section>
 
-    <div class="notes-grid">
-      <div class="note">Your kindness makes every day brighter.</div>
-      <div class="note">You always know how to make everyone smile.</div>
-      <div class="note">Your love is the heart of our family.</div>
-      <div class="note">You support me no matter what.</div>
-      <div class="note">Your laughter is my favorite sound.</div>
-      <div class="note">You make ordinary moments magical.</div>
+    <h2 class="section-title">Things I Love About You 🌷</h2>
+
+    <div class="memory-wall">
+
+      <div class="memory">
+        Your kindness makes every day feel safe and warm.
+      </div>
+
+      <div class="memory">
+        You always know how to make everyone smile.
+      </div>
+
+      <div class="memory">
+        Your love is the heart of our family.
+      </div>
+
+      <div class="memory">
+        Thank you for believing in me no matter what.
+      </div>
+
+      <div class="memory">
+        Your laughter is my favorite sound in the world.
+      </div>
+
+      <div class="memory">
+        You make ordinary moments magical.
+      </div>
+
     </div>
+
   </section>
 
-  <!-- Message -->
-  <section id="message" class="message">
+  <!-- LETTER -->
+  <section id="letter">
+
     <div class="message-box">
-      <h2>A Letter To Ama 💌</h2>
+
+      <h2 class="section-title">A Letter To Mom 💌</h2>
 
       <p>
-        Dearest Ama, 
-        Thank you for everything and for being my biggest supporter ever!! I love you so mcuh and I hope you have an amazing birthday!
+        Mom, thank you for being my biggest supporter,
+        my safest place, and the person who has always
+        believed in me. Every memory with you is something
+        I treasure deeply. I hope this birthday reminds
+        you how loved and appreciated you truly are.
       </p>
 
       <div class="signature">
-        I love you forever ❤️
+        I Love You Forever 💙
       </div>
+
     </div>
+
   </section>
 
   <footer>
-    Made with love for Ama Tashi 🌸
+    Made with love for Mom 💙
   </footer>
+
+  <!-- MUSIC SCRIPT -->
+  <script>
+    function playMusic(){
+      const music=document.getElementById('bgMusic');
+      music.play();
+    }
+
+    document.body.addEventListener('click', function(){
+      document.getElementById('bgMusic').play();
+    }, {once:true});
+  </script>
+
+  <!-- SPARKLE CURSOR -->
+  <script>
+    document.addEventListener('mousemove', function(e){
+
+      const sparkle=document.createElement('div');
+
+      sparkle.classList.add('sparkle');
+
+      sparkle.innerHTML='💙';
+
+      sparkle.style.left=e.pageX+'px';
+      sparkle.style.top=e.pageY+'px';
+
+      document.body.appendChild(sparkle);
+
+      setTimeout(()=>{
+        sparkle.remove();
+      },1000);
+
+    });
+  </script>
 
 </body>
 </html>
-
-
