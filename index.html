@@ -1,1 +1,145 @@
+export default function MomBirthdayWebsite() {
+  const photos = [
+    {
+      src: "https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=1200&auto=format&fit=crop",
+      caption: "Our Favorite Memory"
+    },
+    {
+      src: "https://images.unsplash.com/photo-1511988617509-a57c8a288659?q=80&w=1200&auto=format&fit=crop",
+      caption: "Family Moments"
+    },
+    {
+      src: "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?q=80&w=1200&auto=format&fit=crop",
+      caption: "Smiles & Love"
+    }
+  ];
+
+  return (
+    <div className="min-h-screen bg-gradient-to-b from-pink-100 via-rose-50 to-white text-gray-800 overflow-hidden">
+      {/* Background Music */}
+      <audio autoPlay loop controls className="fixed bottom-4 right-4 z-50 shadow-xl rounded-xl">
+        <source src="/assets/music/eye-in-the-sky.mp3" type="audio/mpeg" />
+      </audio>
+
+      {/* Floating Hearts */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {[...Array(20)].map((_, i) => (
+          <div
+            key={i}
+            className="absolute text-pink-300 animate-bounce opacity-40"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              fontSize: `${20 + Math.random() * 40}px`,
+              animationDuration: `${3 + Math.random() * 4}s`
+            }}
+          >
+            ❤
+          </div>
+        ))}
+      </div>
+
+      {/* Hero Section */}
+      <section className="relative flex flex-col items-center justify-center text-center min-h-screen px-6 z-10">
+        <h1 className="text-6xl md:text-8xl font-extrabold text-rose-600 drop-shadow-lg animate-pulse">
+          Happy Birthday Mom ❤️
+        </h1>
+
+        <p className="mt-8 text-xl md:text-2xl max-w-3xl leading-relaxed text-gray-700">
+          Thank you for every hug, every smile, and every moment of love.
+          This little website is made especially for you.
+        </p>
+
+        <button
+          onClick={() =>
+            document
+              .getElementById("gallery")
+              ?.scrollIntoView({ behavior: "smooth" })
+          }
+          className="mt-10 px-8 py-4 rounded-2xl bg-rose-500 hover:bg-rose-600 text-white text-lg shadow-2xl transition-transform hover:scale-105"
+        >
+          View Memories ✨
+        </button>
+      </section>
+
+      {/* Photo Gallery */}
+      <section id="gallery" className="relative z-10 py-24 px-6 max-w-7xl mx-auto">
+        <h2 className="text-5xl font-bold text-center text-rose-600 mb-16">
+          Our Memories Together
+        </h2>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+          {photos.map((photo, index) => (
+            <div
+              key={index}
+              className="group bg-white rounded-3xl overflow-hidden shadow-2xl hover:scale-105 transition-all duration-300"
+            >
+              <img
+                src={photo.src}
+                alt={photo.caption}
+                className="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-500"
+              />
+
+              <div className="p-6 text-center">
+                <p className="text-xl font-semibold text-gray-700">
+                  {photo.caption}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Love Notes */}
+      <section className="relative z-10 py-24 px-6 bg-white/60 backdrop-blur-sm">
+        <h2 className="text-5xl font-bold text-center text-rose-600 mb-16">
+          Reasons We Love You
+        </h2>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          {[
+            "You always support us no matter what.",
+            "You make every day brighter.",
+            "Your kindness inspires everyone around you.",
+            "Your cooking is unbeatable.",
+            "You are the heart of our family.",
+            "You make every memory special."
+          ].map((reason, index) => (
+            <div
+              key={index}
+              className="p-8 rounded-3xl bg-pink-50 shadow-xl hover:-translate-y-2 transition-all"
+            >
+              <p className="text-lg text-gray-700 leading-relaxed">{reason}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Message Section */}
+      <section className="relative z-10 py-24 px-6 text-center">
+        <div className="max-w-4xl mx-auto bg-white/80 backdrop-blur-md rounded-3xl shadow-2xl p-12">
+          <h2 className="text-5xl font-bold text-rose-600 mb-10">
+            A Special Message
+          </h2>
+
+          <p className="text-xl leading-loose text-gray-700">
+            Mom, thank you for every sacrifice, every lesson, and every bit of
+            love you've given us. You mean more than words can ever express.
+            Today is all about celebrating you and the incredible person you
+            are.
+          </p>
+
+          <p className="mt-10 text-3xl font-bold text-rose-500">
+            We Love You Forever ❤️
+          </p>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="relative z-10 text-center py-10 text-gray-500">
+        Made with love for Mom ✨
+      </footer>
+    </div>
+  );
+}
 
