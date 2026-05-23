@@ -1,145 +1,302 @@
-export default function MomBirthdayWebsite() {
-  const photos = [
-    {
-      src: "https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=1200&auto=format&fit=crop",
-      caption: "Our Favorite Memory"
-    },
-    {
-      src: "https://images.unsplash.com/photo-1511988617509-a57c8a288659?q=80&w=1200&auto=format&fit=crop",
-      caption: "Family Moments"
-    },
-    {
-      src: "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?q=80&w=1200&auto=format&fit=crop",
-      caption: "Smiles & Love"
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday Ama Tashi!! ❤️</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+      font-family: Arial, sans-serif;
     }
-  ];
 
-  return (
-    <div className="min-h-screen bg-gradient-to-b from-pink-100 via-rose-50 to-white text-gray-800 overflow-hidden">
-      {/* Background Music */}
-      <audio autoPlay loop controls className="fixed bottom-4 right-4 z-50 shadow-xl rounded-xl">
-        <source src="/assets/music/eye-in-the-sky.mp3" type="audio/mpeg" />
-      </audio>
+    body {
+      background: linear-gradient(to bottom, #ffe4ec, #fff7f0);
+      overflow-x: hidden;
+      color: #333;
+    }
 
-      {/* Floating Hearts */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(20)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute text-pink-300 animate-bounce opacity-40"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              fontSize: `${20 + Math.random() * 40}px`,
-              animationDuration: `${3 + Math.random() * 4}s`
-            }}
-          >
-            ❤
-          </div>
-        ))}
+    section {
+      padding: 100px 20px;
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    h1 {
+      font-size: 5rem;
+      color: #ff4f87;
+      margin-bottom: 20px;
+      animation: pulse 2s infinite;
+    }
+
+    .subtitle {
+      font-size: 1.5rem;
+      max-width: 700px;
+      line-height: 1.7;
+    }
+
+    .buttons {
+      margin-top: 40px;
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .btn {
+      padding: 15px 30px;
+      border-radius: 20px;
+      background: #ff4f87;
+      color: white;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: 0.3s ease;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+      background: #ff2d70;
+    }
+
+    .gallery {
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .gallery h2,
+    .message h2,
+    .love-notes h2 {
+      text-align: center;
+      font-size: 3rem;
+      margin-bottom: 60px;
+      color: #ff4f87;
+    }
+
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+
+    .photo-card {
+      background: white;
+      border-radius: 30px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      transition: 0.3s ease;
+    }
+
+    .photo-card:hover {
+      transform: translateY(-10px) scale(1.02);
+    }
+
+    .photo-card img {
+      width: 100%;
+      height: 350px;
+      object-fit: cover;
+    }
+
+    .photo-card p {
+      padding: 20px;
+      text-align: center;
+      font-size: 1.1rem;
+    }
+
+    .notes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .note {
+      background: #fff0f5;
+      padding: 30px;
+      border-radius: 25px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+      transition: 0.3s ease;
+    }
+
+    .note:hover {
+      transform: translateY(-8px);
+    }
+
+    .message-box {
+      background: white;
+      max-width: 900px;
+      margin: auto;
+      padding: 60px;
+      border-radius: 40px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .message-box p {
+      font-size: 1.3rem;
+      line-height: 2;
+    }
+
+    .signature {
+      margin-top: 40px;
+      font-size: 2rem;
+      color: #ff4f87;
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px;
+      color: #666;
+    }
+
+    .heart {
+      position: absolute;
+      color: rgba(255, 105, 180, 0.4);
+      animation: float 8s linear infinite;
+      user-select: none;
+    }
+
+    @keyframes float {
+      from {
+        transform: translateY(100vh) rotate(0deg);
+      }
+      to {
+        transform: translateY(-120vh) rotate(360deg);
+      }
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.05);
+      }
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 3rem;
+      }
+
+      .subtitle {
+        font-size: 1.1rem;
+      }
+
+      .message-box {
+        padding: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background Music -->
+  <audio autoplay loop>
+    <source src="assets/music/eye-in-the-sky.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Floating Hearts -->
+  <script>
+    for (let i = 0; i < 30; i++) {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.innerHTML = '❤️';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.fontSize = (20 + Math.random() * 40) + 'px';
+      heart.style.animationDuration = (5 + Math.random() * 10) + 's';
+      document.body.appendChild(heart);
+    }
+  </script>
+
+  <!-- Hero -->
+  <section class="hero">
+    <h1>Happy Birthday Ama Tashi!❤️</h1>
+
+    <p class="subtitle">
+      Thank you so much for everything!! This website was specially mad for you by Yuelha
+    </p>
+
+    <div class="buttons">
+      <a href="#gallery" class="btn">View Memories 📸</a>
+      <a href="#message" class="btn">Read My Letter 💌</a>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section id="gallery" class="gallery">
+    <h2>Memory Gallery 📸</h2>
+
+    <div class="photo-grid">
+      <div class="photo-card">
+        <img src="assets/images/mom1.jpg" alt="Mom Photo 1">
+        <p>Replace this with your favorite photo ❤️</p>
       </div>
 
-      {/* Hero Section */}
-      <section className="relative flex flex-col items-center justify-center text-center min-h-screen px-6 z-10">
-        <h1 className="text-6xl md:text-8xl font-extrabold text-rose-600 drop-shadow-lg animate-pulse">
-          Happy Birthday Mom ❤️
-        </h1>
+      <div class="photo-card">
+        <img src="assets/images/mom2.jpg" alt="Mom Photo 2">
+        <p>A beautiful family memory 🌸</p>
+      </div>
 
-        <p className="mt-8 text-xl md:text-2xl max-w-3xl leading-relaxed text-gray-700">
-          Thank you for every hug, every smile, and every moment of love.
-          This little website is made especially for you.
-        </p>
-
-        <button
-          onClick={() =>
-            document
-              .getElementById("gallery")
-              ?.scrollIntoView({ behavior: "smooth" })
-          }
-          className="mt-10 px-8 py-4 rounded-2xl bg-rose-500 hover:bg-rose-600 text-white text-lg shadow-2xl transition-transform hover:scale-105"
-        >
-          View Memories ✨
-        </button>
-      </section>
-
-      {/* Photo Gallery */}
-      <section id="gallery" className="relative z-10 py-24 px-6 max-w-7xl mx-auto">
-        <h2 className="text-5xl font-bold text-center text-rose-600 mb-16">
-          Our Memories Together
-        </h2>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-          {photos.map((photo, index) => (
-            <div
-              key={index}
-              className="group bg-white rounded-3xl overflow-hidden shadow-2xl hover:scale-105 transition-all duration-300"
-            >
-              <img
-                src={photo.src}
-                alt={photo.caption}
-                className="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-500"
-              />
-
-              <div className="p-6 text-center">
-                <p className="text-xl font-semibold text-gray-700">
-                  {photo.caption}
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Love Notes */}
-      <section className="relative z-10 py-24 px-6 bg-white/60 backdrop-blur-sm">
-        <h2 className="text-5xl font-bold text-center text-rose-600 mb-16">
-          Reasons We Love You
-        </h2>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {[
-            "You always support us no matter what.",
-            "You make every day brighter.",
-            "Your kindness inspires everyone around you.",
-            "Your cooking is unbeatable.",
-            "You are the heart of our family.",
-            "You make every memory special."
-          ].map((reason, index) => (
-            <div
-              key={index}
-              className="p-8 rounded-3xl bg-pink-50 shadow-xl hover:-translate-y-2 transition-all"
-            >
-              <p className="text-lg text-gray-700 leading-relaxed">{reason}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Message Section */}
-      <section className="relative z-10 py-24 px-6 text-center">
-        <div className="max-w-4xl mx-auto bg-white/80 backdrop-blur-md rounded-3xl shadow-2xl p-12">
-          <h2 className="text-5xl font-bold text-rose-600 mb-10">
-            A Special Message
-          </h2>
-
-          <p className="text-xl leading-loose text-gray-700">
-            Mom, thank you for every sacrifice, every lesson, and every bit of
-            love you've given us. You mean more than words can ever express.
-            Today is all about celebrating you and the incredible person you
-            are.
-          </p>
-
-          <p className="mt-10 text-3xl font-bold text-rose-500">
-            We Love You Forever ❤️
-          </p>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="relative z-10 text-center py-10 text-gray-500">
-        Made with love for Mom ✨
-      </footer>
+      <div class="photo-card">
+        <img src="assets/images/mom3.jpg" alt="Mom Photo 3">
+        <p>Another unforgettable moment ✨</p>
+      </div>
     </div>
-  );
-}
+  </section>
+
+  <!-- Love Notes -->
+  <section class="love-notes">
+    <h2>Things I Love About You 🌷</h2>
+
+    <div class="notes-grid">
+      <div class="note">Your kindness makes every day brighter.</div>
+      <div class="note">You always know how to make everyone smile.</div>
+      <div class="note">Your love is the heart of our family.</div>
+      <div class="note">You support me no matter what.</div>
+      <div class="note">Your laughter is my favorite sound.</div>
+      <div class="note">You make ordinary moments magical.</div>
+    </div>
+  </section>
+
+  <!-- Message -->
+  <section id="message" class="message">
+    <div class="message-box">
+      <h2>A Letter To Mom 💌</h2>
+
+      <p>
+        Mom, thank you for being my biggest supporter, my safest place,
+        and the person who has always believed in me. Every memory with
+        you is something I treasure deeply. I hope this birthday reminds
+        you how loved and appreciated you truly are.
+      </p>
+
+      <div class="signature">
+        I love you forever ❤️
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    Made with love for Mom 🌸
+  </footer>
+
+</body>
+</html>
+
 
